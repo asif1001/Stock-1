@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUBLI STOCK COUNT</title>
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js" defer></script>
+
+    <!-- CSS for styling and mobile responsiveness -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        form {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .form-section-label {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center; /* Center the label */
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        /* Style for Last LPN display */
+        #lastLpnContainer {
+            font-size: 0.9em;
+            color: #555;
+            margin: 10px 0 5px;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+            input, button {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+            #lastLpnContainer {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <!-- TUBLI STOCK COUNT label centered in the box -->
+        <div class="form-section-label">TUBLI STOCK COUNT</div>
+
+        <!-- Reference No and Date and Time in one line -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="referenceNo">Reference No:</label>
+                <input type="text" id="referenceNo" name="referenceNo" readonly>
+            </div>
+            <div class="form-group">
+                <label for="dateTime">Date and Time:</label>
+                <input type="text" id="dateTime" name="dateTime" readonly>
+            </div>
+        </div>
+
+        <!-- Checker Name -->
+        <label for="checkerName">Checker:</label>
+        <input type="text" id="checkerName" name="checkerName" required>
+
+        <!-- Locator -->
+        <label for="locator">Locator:</label>
+        <input type="text" id="locator" name="locator" required>
+
+        <!-- Last LPN Entered Display -->
+        <div id="lastLpnContainer">
+            <strong>Last LPN Entered:</strong> <span id="lastLpn">None</span>
+        </div>
+
+        <!-- LPN NO -->
+        <label for="lpnNo">LPN NO:</label>
+        <input type="text" id="lpnNo" name="lpnNo" required>
+
+        <!-- Change Locator Button -->
+        <button type="button" onclick="changeLocator()">Change Locator</button>
+    </form>
+</body>
+</html>
